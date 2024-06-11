@@ -1,0 +1,20 @@
+.listcontainer {
+    border: 3px groove rgba(197, 51, 197, 0.452);
+    border-radius: 0.3rem;
+    margin: 2rem;
+    padding: 0.2rem 0.7rem;
+  
+    background-color: rgb(177, 233, 225);
+    text-align: center;
+  }
+  
+  .user {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .btn {
+    height: 30px;
+    margin-top: 15%;
+  }
+  

@@ -1,0 +1,43 @@
+.form {
+    border: 3px groove blueviolet;
+    margin: 1rem 20vw;
+    padding: 0.5rem;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+  
+  .inputgroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    background-color: beige;
+    min-width: 20vw;
+  }
+  
+  .inputgroup input {
+    max-width: 10vw;
+  }
+  
+  .inputgroup label {
+    text-align: left;
+    margin: auto 0.3rem;
+  }
+  
+  .btn {
+    font-weight: bold;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    background-color: rgb(66, 158, 66);
+  }
+  
+  .btn:hover {
+    font-style: oblique;
+    background-color: rgb(56, 216, 163);
+  }
+  
