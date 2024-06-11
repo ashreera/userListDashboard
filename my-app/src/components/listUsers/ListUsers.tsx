@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListUsers } from '../../App.types'
 
-import listUsersStyles from './ListUsers.module.css'
+import listUsersStyles from '../listUsers/ListUsers.module.css'
 
 const AllUsers: React.FC<ListUsers> = ({ allUsers}) => {
   return (
@@ -20,16 +20,10 @@ const AllUsers: React.FC<ListUsers> = ({ allUsers}) => {
           allUsers.map((user, idx) => (
             <div key={idx} className={listUsersStyles.user}>
               <h4>{user.username}</h4>
-              <h4>{user.age}</h4>
-              <h4>{user.profession}</h4>
+              <h4>{user.useremail}</h4>
+              <h4>{user.userphoto}</h4>
 
-              <button
-                onClick={() => deleteHandler(idx)}
-                className={listUsersStyles.btn}
-              >
-                Delete
-              </button>
-            </div>
+             </div>
           ))}
       </div>
     </>

@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import './App.css';
-import { User, Users } from './App.types'
+import {  Users } from './App.types'
 import ListUsers from './components/listUsers/ListUsers'
 import NeoUser from './components/newUser/newUser'
 
@@ -37,7 +37,7 @@ const App: React.FC = () => {
         useremail: 0,
         userphoto: '',
       },
-      allUsers: [...userComposite.allUsers, userComposite.currentUser],
+      allUsers: [...userComposite.allUsers],
     })
   }
 

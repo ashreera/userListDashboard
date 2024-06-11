@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { NewUser } from '../../App.types'
-import newUserStyles from './NewUser.module.css'
+import newUserStyles from '../newUser/newUser.module.css'
 
 const NeoUser: React.FC<NewUser> = ({
   userComposite,
