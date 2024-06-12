@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { NewUser } from '../../App.types'
 import newUserStyles from '../newUser/newUser.module.css'
 
@@ -12,7 +11,7 @@ const NeoUser: React.FC<NewUser> = ({
     if (
       userComposite.currentUser &&
       userComposite.currentUser.username &&
-      // userComposite.currentUser.age &&
+      userComposite.currentUser.userphoto &&
       userComposite.currentUser.useremail
     ) {
       return false
@@ -41,29 +40,30 @@ const NeoUser: React.FC<NewUser> = ({
           required
           type='email'
           id='email'
-          name='email'
+          name='useremail'
           value={userComposite.currentUser.useremail}
           onChange={onChangeHandler}
         />
       </div>
 
       <div className={newUserStyles.inputgroup}>
-        <label htmlFor='profession'>Photo:</label>
+        <label htmlFor='userphoto'>Photo:</label>
         <input
           required
           type='file'
-          name='photo'
+          name='userphoto'
           id='photo'
+          accept="image/*"
           value={userComposite.currentUser.userphoto}
-       />
-          <input type="submit"
           onChange={onChangeHandler}
-        />
 
+       />
+         
       </div>
 
       <button
         type='submit'
+        name ="adduser"
         className={newUserStyles.btn}
         disabled={isNewUserBtnDisabled()}
       >

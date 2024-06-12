@@ -34,17 +34,17 @@ const App: React.FC = () => {
     setUserComposite({
       currentUser: {
         username: '',
-        useremail: 0,
+        useremail: "",
         userphoto: '',
       },
-      allUsers: [...userComposite.allUsers],
+      allUsers: [...userComposite.allUsers,userComposite.currentUser],
     })
   }
 
 
   return (
     <div className='App'>
-      <h1>React Typescript Simple UserList Project</h1>
+      <h1>Simple UserList Project</h1>
 
       <NeoUser
         userComposite={userComposite}

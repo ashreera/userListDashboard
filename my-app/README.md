@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App using the TypeScript template](https://github.com/facebook/create-react-app/blob/main/docusaurus/docs/adding-typescript.md).
 
 ## Available Scripts
 
