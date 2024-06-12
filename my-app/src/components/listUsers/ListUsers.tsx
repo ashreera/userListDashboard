@@ -7,7 +7,7 @@ import listUsersStyles from '../listUsers/ListUsers.module.css'
 const AllUsers: React.FC<ListUsers> = ({ allUsers}) => {
 
   // fetching userdata from the api using useQuery
-  
+
 //   const fetchUserData = async () => {
 //     const response = await fetch('https://randomuser.me/api/');
 //     if (!response.ok) {
@@ -34,14 +34,13 @@ const AllUsers: React.FC<ListUsers> = ({ allUsers}) => {
           <h4>Photo</h4>
         </div>
 
-        <hr />
 
         {allUsers &&
           allUsers.map((user, idx) => (
             <div key={idx} className={listUsersStyles.user}>
-              <h4>{user.username}</h4>
-              <h4>{user.useremail}</h4>
-              <h4>{user.userphoto}</h4>
+              <div>{user.username}</div>
+              <div>{user.useremail}</div>
+              <div>{user.userphoto}</div>
 
              </div>
           ))}

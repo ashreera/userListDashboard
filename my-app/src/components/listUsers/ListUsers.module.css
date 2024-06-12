@@ -7,10 +7,17 @@
     background-color: rgb(177, 233, 225);
     text-align: center;
   }
+  .listcontainer h2 {
+    border-bottom: 2px solid blue;
+
+  }
   
   .user {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+  }
+  .user div {
+    border: 1px solid blue;
   }
   
   .btn {
