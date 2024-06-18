@@ -1,29 +1,38 @@
-import React from 'react'
+import React,{FC,useState} from 'react'
 import { ListUsers } from '../../App.types'
 import listUsersStyles from '../listUsers/ListUsers.module.css'
-// import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
+const AllUsers: FC<ListUsers> = ({ allUsers }) => {
 
-const AllUsers: React.FC<ListUsers> = ({ allUsers}) => {
+  const [users, setUsers] = useState<[]>([]);
 
   // fetching userdata from the api using useQuery
+    const fetchUserData = (): Promise<[]> =>
+      axios.get("https://randomuser.me/api/?results=10")
+        .then((response: any) => response.data)
+        .then((data: any) => data.results)
 
-//   const fetchUserData = async () => {
-//     const response = await fetch('https://randomuser.me/api/');
-//     if (!response.ok) {
-//         throw new Error('Failed to fetch user data');
-//     }
-//     return response.json();
-// };
-
-//     let { allListUsers, isLoading, error } = useQuery(listUsers, fetchUserData);
-
-//     {isLoading = true} <div>Loading...</div>;
-//     if (error) return <div>Error: {error.message}</div>;
+        const getUsers = (): void => {
+          fetchUserData().then((data: []) => setUsers(data));
+        }
+        // data is inferred from fetch const, error is unknown
+    const { data: inferredData, error: errorUnknown } = useQuery({ queryKey: ["listuser"], queryFn: fetchUserData });
     
-//     // Render user dashboard using data
-
-  return (
+    // specify the error and data type as type param
+    const { data: typedData, error: typedError } = useQuery<[], Error>({ queryKey: ["listuser"], queryFn: fetchUserData });
+    // runtime check errorUnknown is an error
+    if (errorUnknown instanceof Error) {
+      return <p>Woops! something went wrong</p>
+    }
+  
+    // trusting the type matches return value
+    if (typedError) {
+      return <p>{typedError.message}</p>
+    }
+  
+    return (
     
     <>
       <div className={listUsersStyles.listcontainer}>
@@ -40,11 +49,21 @@ const AllUsers: React.FC<ListUsers> = ({ allUsers}) => {
             <div key={idx} className={listUsersStyles.user}>
               <div>{user.username}</div>
               <div>{user.useremail}</div>
-              <div>{user.userphoto}</div>
+              <img src={user.userphoto}  width="100" height="50"/>
+             </div>
+          ))}
 
+          {users && users.map((user: any, index: number) => (
+            <div key={index} className={listUsersStyles.user}>
+              <div>{user.name.title} {user.name.first} {user.name.last}</div>
+              <div>{user.email}</div>
+              <div><img src={user.picture.thumbnail}/></div>
              </div>
           ))}
       </div>
+
+      <button onClick={getUsers} className={listUsersStyles.btn}>Load User</button>
+
     </>
   )
 }

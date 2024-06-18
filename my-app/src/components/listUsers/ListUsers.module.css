@@ -14,14 +14,22 @@
   
   .user {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .user div {
     border: 1px solid blue;
+    padding: 10px 5px;
   }
   
   .btn {
-    height: 30px;
-    margin-top: 15%;
+    font-weight: bold;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    background-color: rgb(66, 158, 66);
+  }
+  
+  .btn:hover {
+    font-style: oblique;
+    background-color: rgb(56, 216, 163);
   }
   

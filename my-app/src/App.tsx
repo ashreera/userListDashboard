@@ -3,6 +3,8 @@ import './App.css';
 import {  Users } from './App.types'
 import ListUsers from './components/listUsers/ListUsers'
 import NeoUser from './components/newUser/newUser'
+import {QueryClient ,QueryClientProvider } from "@tanstack/react-query";
+// import SearchInput from './components/listUsers/searchUser';
 
 const App: React.FC = () => {
   const [userComposite, setUserComposite] = useState<Users>({
@@ -13,6 +15,7 @@ const App: React.FC = () => {
     },
     allUsers: [],
   })
+  const queryClient =  new QueryClient();
 
   const onChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -51,10 +54,12 @@ const App: React.FC = () => {
         onSubmitHandler={onSubmitHandler}
         onChangeHandler={onChangeHandler}
       />
+      <QueryClientProvider client={queryClient}>
 
       <ListUsers
         allUsers={userComposite.allUsers}
       />
+      </QueryClientProvider>
     </div>
   )
 }
