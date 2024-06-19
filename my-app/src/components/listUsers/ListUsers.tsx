@@ -11,7 +11,7 @@ const AllUsers: FC<ListUsers> = ({ allUsers }) => {
 
   // fetching userdata from the api using useQuery
     const fetchUserData = (): Promise<[]> =>
-      fetch("https://randomuser.me/api/?results=10")
+      axios.get("https://randomuser.me/api/?results=10")
         .then((response: any) => response.data)
         .then((data: any) => data.results)
 
