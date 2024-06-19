@@ -1,8 +1,9 @@
-import React,{FC,useState} from 'react'
+import {FC,useState} from 'react'
+import axios from "axios";
 import { ListUsers } from '../../App.types'
 import listUsersStyles from '../listUsers/ListUsers.module.css'
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+
 
 const AllUsers: FC<ListUsers> = ({ allUsers }) => {
 
@@ -10,7 +11,7 @@ const AllUsers: FC<ListUsers> = ({ allUsers }) => {
 
   // fetching userdata from the api using useQuery
     const fetchUserData = (): Promise<[]> =>
-      axios.get("https://randomuser.me/api/?results=10")
+      fetch("https://randomuser.me/api/?results=10")
         .then((response: any) => response.data)
         .then((data: any) => data.results)
 
@@ -35,10 +36,10 @@ const AllUsers: FC<ListUsers> = ({ allUsers }) => {
     return (
     
     <>
-      <div className={listUsersStyles.listcontainer}>
+       <div className={listUsersStyles.listcontainer}>
         <h2>List of Users</h2>
         <div className={listUsersStyles.user}>
-          <h4>User Fullname</h4>
+          <h4>User full name</h4>
           <h4>Email</h4>
           <h4>Photo</h4>
         </div>

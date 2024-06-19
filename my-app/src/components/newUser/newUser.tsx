@@ -28,6 +28,7 @@ const NeoUser: React.FC<NewUser> = ({
           required
           type='text'
           name='username'
+          aria-labelledby="username"
           id='username'
           value={userComposite.currentUser.username}
           onChange={onChangeHandler}
@@ -41,6 +42,7 @@ const NeoUser: React.FC<NewUser> = ({
           type='email'
           id='email'
           name='useremail'
+          aria-labelledby="useremail"
           value={userComposite.currentUser.useremail}
           onChange={onChangeHandler}
         />
@@ -53,6 +55,7 @@ const NeoUser: React.FC<NewUser> = ({
           type='file'
           name='userphoto'
           id='photo'
+          aria-labelledby="userphoto"
           accept="image/*"
           value={userComposite.currentUser.userphoto}
           onChange={onChangeHandler}

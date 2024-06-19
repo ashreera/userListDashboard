@@ -39,8 +39,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+All about the application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+add User:  One can easly add the new user by clicking  Add user Button on the  top right form submittion.
+By entering allthe field with mandatory  values.
+Then it will be added to the user list table below.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Load user: Loading the user from server just by clicking Loaduser button  in the below the table.
+You will be loading 10 record at a time.
