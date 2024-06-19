@@ -28,21 +28,19 @@ const NeoUser: React.FC<NewUser> = ({
           required
           type='text'
           name='username'
-          aria-labelledby="username"
-          id='username'
+          id="username"
           value={userComposite.currentUser.username}
           onChange={onChangeHandler}
         />
       </div>
 
       <div className={newUserStyles.inputgroup}>
-        <label htmlFor='age'>Email:</label>
+        <label htmlFor='useremail'>Email:</label>
         <input
           required
           type='email'
-          id='email'
           name='useremail'
-          aria-labelledby="useremail"
+          id="useremail"
           value={userComposite.currentUser.useremail}
           onChange={onChangeHandler}
         />
@@ -54,8 +52,7 @@ const NeoUser: React.FC<NewUser> = ({
           required
           type='file'
           name='userphoto'
-          id='photo'
-          aria-labelledby="userphoto"
+          id="userphoto"
           accept="image/*"
           value={userComposite.currentUser.userphoto}
           onChange={onChangeHandler}
@@ -65,6 +62,7 @@ const NeoUser: React.FC<NewUser> = ({
       </div>
 
       <button
+        role="button"
         type='submit'
         name ="adduser"
         className={newUserStyles.btn}

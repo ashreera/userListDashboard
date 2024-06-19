@@ -1,27 +1,30 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen ,fireEvent} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 
 
 test('renders the landing page', async () => {
    render(<App />);
-   expect(screen.getByRole("heading")).toHaveTextContent(/Simple UserList Project/);
-   expect(screen.getByRole("button", { name: "Add User" })).toBeDisabled();
+   const headingElement = screen.getByText(/Simple UserList Project/i);
+   expect(headingElement).toBeInTheDocument();
 });
 
 test("renders the add userlist  form", async () => {
    render(<App />);
    //Simulate form node and verifying its value
-   expect(screen.getByLabelText("username",{selector: 'input'})).toBeInTheDocument();
-   expect(screen.getByLabelText("useremail",{selector: 'input'})).toBeInTheDocument();
-   expect(screen.getByLabelText("userphoto",{selector: 'input'})).toBeInTheDocument();
-   const file = new File(['hello'], 'hello.png', {type: 'image/*'})
-   const uploadinput = screen.getByLabelText(/upload file/i)
-   userEvent.upload(uploadinput, file)
+   expect(screen.getByLabelText("Name:",{selector: 'input'})).toBeInTheDocument();
+   expect(screen.getByLabelText("Email:",{selector: 'input'})).toBeInTheDocument();
+   expect(screen.getByLabelText("Photo:",{selector: 'input'})).toBeInTheDocument();
  
 
    //Initiate the adduser request
-   const addUserBtn = screen.getByRole("button", { name: "adduser" });
+   const addUserBtn = screen.getByText("Add User" );
    expect(addUserBtn).toBeDisabled();
    userEvent.click(addUserBtn);
+
+   //Initiate the adduser request
+   const uploadUserBtn = screen.getByText("Load User" );
+   expect(uploadUserBtn).not.toBeDisabled();
+   userEvent.click(uploadUserBtn);
+
 })

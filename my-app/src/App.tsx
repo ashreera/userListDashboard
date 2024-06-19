@@ -47,7 +47,7 @@ const App: React.FC = () => {
 
   return (
     <div className='App'>
-      <h1>Simple UserList Project</h1>
+      <h1 aria-labelledby='heading'>Simple UserList Project</h1>
 
       <NeoUser
         userComposite={userComposite}
