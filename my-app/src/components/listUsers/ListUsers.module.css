@@ -15,8 +15,12 @@
   .user {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    border: 1px solid blue;
+    word-break: break-word
+
   }
-  .user div {
+  
+  .user div , .user h4{
     border: 1px solid blue;
     padding: 10px 5px;
   }
@@ -33,3 +37,34 @@
     background-color: rgb(56, 216, 163);
   }
   
+.search {
+  position: relative;
+  display: flex;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid #cCC;
+  padding: 5px;
+
+}
+
+.searchTerm {
+  width: 50%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+.search label {
+  text-align: center;
+  margin: auto 0.3rem;
+  font-weight: bolder;
+  width: 20%;
+}
+
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
